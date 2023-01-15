@@ -4,14 +4,16 @@ use rand::Rng;
 use colored::*;
 
 fn main() {
+
     println!("{}","Guessing Game".blue());
     println!("");
-
     let secret_number = rand::thread_rng().gen_range(1..100);
     println!("Secret number is {}", secret_number);
+    let mut count = 0;
     println!("................................................................");
  
     loop {  
+        count += 1;
             println!("");
             println!("Please input your guess");
 
@@ -34,10 +36,13 @@ fn main() {
             Ordering::Greater => println!("{}","Too big".red()),
             Ordering::Equal => {
                 println!("{}","You win".green());
+                println!("Summary - You tried {} times", count);
                 println!("");
                 break;
             }
         }
+    
      }
+    
 
 }
