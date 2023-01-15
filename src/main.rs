@@ -4,12 +4,15 @@ use rand::Rng;
 use colored::*;
 
 fn main() {
-    println!("Guessing Game");
+    println!("{}","Guessing Game".blue());
+    println!("");
 
     let secret_number = rand::thread_rng().gen_range(1..100);
     println!("Secret number is {}", secret_number);
+    println!("................................................................");
  
-    loop {
+    loop {  
+            println!("");
             println!("Please input your guess");
 
         let mut guess = String::new();
@@ -23,6 +26,7 @@ fn main() {
 
         };
 
+        println!("");
         println!("You guessed : {}", guess);    
 
         match guess.cmp(&secret_number){
@@ -30,6 +34,7 @@ fn main() {
             Ordering::Greater => println!("{}","Too big".red()),
             Ordering::Equal => {
                 println!("{}","You win".green());
+                println!("");
                 break;
             }
         }
